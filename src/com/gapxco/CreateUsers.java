@@ -77,10 +77,8 @@ public class CreateUsers {
                 int index = cleans.indexOf(guardado);
                 if (index >= 0) {
                     Usuario clean = cleans.get(index);
-                    Usuario nuevo =
-                            new Usuario("" + clean.getDepartamento(), "" + clean.getMunicipio(), clean.getUsuario() + ""
-                                    + clean.getDepartamento(), clean.getDescripcion(), clean.getCantidad() + 1);
-                    cleans.add(nuevo);
+                    guardado.setUsuario(guardado.getUsuario()+'_'+guardado.getDepartamento()+'_'+guardado.getMunicipio());
+                    cleans.add(guardado);
                 } else {
                     cleans.add(guardado);
                 }
