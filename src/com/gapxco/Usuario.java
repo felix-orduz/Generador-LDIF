@@ -47,7 +47,8 @@ public class Usuario {
         this.municipio = Integer.parseInt(campos[1]);
 
         String temp = campos[2].replace(" ", "").replace('-','_')
-                .replace('(','_').replace(')','_').replace('.','_');
+                .replace('(','_').replace(')','_').replace('.','_')
+                .replace("Ñ","N").replace("ñ","ñ");
         temp = temp.toLowerCase();
         this.usuario = temp;//eliminarParentesis(temp.replace("ñ", "n"));
 
@@ -122,7 +123,7 @@ public class Usuario {
     }
 
     public void setPrensa(String prensa) {
-        if (prensa != null && prensa.replaceAll(" ", "").isEmpty()) {
+        if (prensa != null && !prensa.replaceAll(" ", "").isEmpty()) {
             this.prensa = true;
         } else {
             this.prensa = false;
@@ -130,7 +131,7 @@ public class Usuario {
     }
 
     public void setVotacion(String votacion) {
-        if (votacion != null && votacion.replaceAll(" ", "").isEmpty()) {
+        if (votacion != null && !votacion.replaceAll(" ", "").isEmpty()) {
             this.votacion = true;
         } else {
             this.votacion = false;
@@ -146,7 +147,7 @@ public class Usuario {
     }
 
     public void setTec(String tec) {
-        if (tec != null && tec.replaceAll(" ", "").isEmpty()) {
+        if (tec != null && !tec.replaceAll(" ", "").isEmpty()) {
             this.tec = true;
         } else {
             this.tec = false;
