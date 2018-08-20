@@ -139,7 +139,7 @@ public class Usuario {
     }
 
     public void setAuditoria(String auditoria) {
-        if (auditoria != null && auditoria.replaceAll(" ", "").isEmpty()) {
+        if (auditoria != null && !auditoria.replaceAll(" ", "").isEmpty()) {
             this.auditoria = true;
         } else {
             this.auditoria = false;
