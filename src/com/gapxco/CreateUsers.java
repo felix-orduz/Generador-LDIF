@@ -101,6 +101,7 @@ public class CreateUsers {
             out.println("objectClass: top");
             out.println("ou: users");
             out.println("entryUUID: 7b931310-2d67-3e74-8e14-99dc8cdf079b");
+            out.println("");
             out.flush();
             out.close();
         } catch (IOException e) {
@@ -116,7 +117,12 @@ public class CreateUsers {
 
             out.println();
             out.println("dn: cn=" + group + ",ou=groups,ou=system");
-            out.println("objectClass: organizationalUnit");
+            if(memberTag == "member"){
+                out.println("objectClass: groupOfNames");
+            }else{
+                out.println("objectClass: groupOfUniqueNames");
+            }
+
             out.println("objectClass: top");
 
             for (int i = 0; i < usuarios.size(); i++) {
